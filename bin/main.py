@@ -7,7 +7,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 # Função para ler os dados do arquivo e gerar o dataset
 def ler_dados_arquivo(caminho_arquivo):
     try:
-        df = pd.read_csv(caminho_arquivo, delim_whitespace=True, header=None, names=['tempo', 'forca', 'pressao'])
+        df = pd.read_csv(caminho_arquivo, delim_whitespace=True, header=None, skiprows=1, encoding='latin1',  names=['tempo', 'forca'])
         return df
     except Exception as e:
         print(f"Erro ao ler o arquivo: {e}")
@@ -131,5 +131,5 @@ def main(caminho_arquivo):
     mostrar_webcam_com_grafico(caminho_arquivo)
 
 if __name__ == "__main__":
-    caminho_arquivo = 'C:\\Users\\rhuan\\Documents\\projects\\SiriusGraph\\bin\\dados.txt'  # Substitua pelo caminho do seu arquivo de dados
+    caminho_arquivo = input('Digite o caminho do arquivo: ') #"C:\\Users\\rhuan\\Downloads\\log_2024_12_12__16h_25min_42s.txt" # Substitua pelo caminho do seu arquivo de dados
     main(caminho_arquivo) 
