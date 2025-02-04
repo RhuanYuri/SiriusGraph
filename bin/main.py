@@ -10,7 +10,7 @@ def ler_dados_arquivo(caminho_arquivo):
         df = pd.read_csv(caminho_arquivo, delim_whitespace=True, header=None, skiprows=1, encoding='latin1',  names=['tempo', 'forca'])
         return df
     except Exception as e:
-        print(f"Erro ao ler o arquivo: {e}")
+        print(f"Erro ao ler o arquivo: {e}") # mostrar o erro
         return None
 
 # Função para calcular impulso e total de impulso
